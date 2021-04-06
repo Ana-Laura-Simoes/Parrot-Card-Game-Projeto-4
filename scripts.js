@@ -12,6 +12,14 @@ function QuantasCartas(){
          }
          else i=0;
      }
+     AdicionarCartas(cartas);
+}
+
+function AdicionarCartas(qtd){
+    for (let i = 0; i < qtd-1; i++){
+        const elemento = document.querySelector(".container_cartas");
+        elemento.innerHTML = elemento.innerHTML + `<div class="carta"><img src="imagens/front.png" class="frente"/></div>`;
+    }
 }
 
 

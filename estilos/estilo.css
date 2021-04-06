@@ -4,7 +4,7 @@ body{
 
 
 .topo{
-    margin:45px auto;
+    margin:40px auto;
     text-align: center;
     color:#75B79E;
     font-family: 'Roboto', sans-serif;
@@ -20,10 +20,10 @@ body{
     justify-content: center;
 }
 
-.cartas{
+.carta{
 height: 146px;
 width: 117px;
-margin:20px;
+margin:30px;
 border-radius: 5px;
 background:#75B79E;
 display:flex;
@@ -33,12 +33,6 @@ align-items: center;
 .frente{
     width:100px;
     height:100px;
-}
-.esconder{
-    display:none;
-}
-.teste{
-    background: chartreuse;
 }
 
 @media(max-width: 335px){
