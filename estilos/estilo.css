@@ -1,0 +1,43 @@
+body{
+    background:#EEF9BF;
+}
+
+
+.topo{
+    margin:45px auto;
+    text-align: center;
+    border-radius: nullpx;
+    color:#75B79E;
+    font-family: 'Roboto', sans-serif;
+    font-size:56px;
+    font-weight:700;
+}
+.container_cartas{
+    width:90%;
+    margin:0 auto;
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.cartas{
+height: 146px;
+width: 117px;
+margin:20px;
+border-radius: 5px;
+background:#75B79E;
+display:flex;
+justify-content: center;
+align-items: center;
+}
+.frente{
+    width:100px;
+    height:100px;
+}
+.esconder{
+    display:none;
+}
+.teste{
+    background: chartreuse;
+}
