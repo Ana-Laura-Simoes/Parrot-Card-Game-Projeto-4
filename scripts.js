@@ -3,9 +3,8 @@ let qtd=0;
 let virada=0;
 let jogadas=0;
 let acertos=0;
-let carta1;
-let carta2;
-let i=[2];
+const c=[2];
+const i=[2];
 const array = [qtd];
 const parrots = ['bobrossparrot.gif','explodyparrot.gif','fiestaparrot.gif',
 'metalparrot.gif','revertitparrot.gif','tripletsparrot.gif','unicornparrot.gif']
@@ -23,8 +22,8 @@ function QuantasCartas(){
 
 function AdicionarCartas(){
     for(let i=j=0;i<qtd-1;i=i+2,j++){
-        array[i]=array[i+1]=`<li class="classe${i}">
-        <div class="carta" onclick="virar(this)"><img src="imagens/${parrots[j]}" class="verso esconder"/><img src="imagens/front.png" class="frente" /></div>
+        array[i]=array[i+1]=`<li class="par${i}">
+        <div class="carta abaixada" onclick="virar(this,${i})"><img src="imagens/${parrots[j]}" class="verso esconder"/><img src="imagens/front.png" class="frente" /></div>
         </li>`;
     }
     //embaralha as cartas
@@ -40,46 +39,58 @@ function comparador() {
     return Math.random() - 0.5; 
 }
 
-function virar(carta){
+function virar(carta,par){
+    console.log(virada);
         jogadas++;
-        //se  tem 1/nenhuma carta virada
-        if(virada<=2){
-            //se a mesma carta nao esta sendo clicada 2 vezes
-            if( !carta.classList.contains(".estouvirada")){
-                carta.classList.add('.estouVirada');
-                carta.querySelector(".frente").classList.add('esconder');
-                carta.querySelector(".verso").classList.remove('esconder');
-                carta1=(carta.Parentnode);
-                virada++;
-                if (virada===2) {
-                    carta2=(carta.Parentnode);
-                    ehIgual(carta1,carta2);// carta.setAttribute("onclick","#")
-                }
-
+        if(virada<2){
+        if(carta.classList.contains("abaixada")){
+            
+            i[virada]=par;
+            c[virada]=carta;
+            console.log(c[virada]);
+            carta.classList.add('estouVirada');
+            carta.classList.remove('abaixada');
+            carta.querySelector(".frente").classList.add('esconder');
+            carta.querySelector(".verso").classList.remove('esconder');
+            virada++;
+            
         }
-
-        
-
-        
+        if(virada===2){
+            if(Number(i[0])===Number(i[1])){
+                console.log(i[0],i[1]);
+                console.log("acertou");
+            }
+            else {
+            setTimeout('desvirar(c[0])',1000);
+            setTimeout('desvirar(c[1])', 1000);
+            }
+            virada=0;
+        }
     }
 }
 
-function ehIgual(carta1,carta2){
-    if((carta1.innerHTML)===(carta2.innerHTML)){
-        virada=0;
-        console.log("acertou");
+/*function ehIgual(){
+    if((carta1)===(carta2)){
+        
     }
-
     else{
-        setTimeout('desvirar(carta1)', 1000);
-        setTimeout('desvirar(carta2)', 1000);
-    }
+        setTimeout('desvirar()', 1000);
 
-}
+    }
+    carta1="";
+    carta2=".";
+}*/
 
 function desvirar(carta){
-    carta.classList.remove('.estouVirada');
+    carta.classList.remove('estouVirada');
+    carta.classList.add('abaixada');
     carta.querySelector(".frente").classList.remove('esconder');
     carta.querySelector(".verso").classList.add('esconder');
-    virada--;   
+
+    carta.classList.remove('estouVirada');
+    carta.classList.add('abaixada');
+    carta.querySelector(".frente").classList.remove('esconder');
+    carta.querySelector(".verso").classList.add('esconder');
+
 }
+
