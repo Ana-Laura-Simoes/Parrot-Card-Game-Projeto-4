@@ -58,7 +58,9 @@ function virar(carta,par){
         if(virada===2){
             if(Number(i[0])===Number(i[1])){
                 console.log(i[0],i[1]);
-                console.log("acertou");
+                acertos++;
+                /*c[0].setAttribute("onclick","#");
+                c[1].setAttribute("onclick","#");*/
             }
             else {
             setTimeout('desvirar(c[0])',1000);
@@ -67,19 +69,8 @@ function virar(carta,par){
             virada=0;
         }
     }
+fim();
 }
-
-/*function ehIgual(){
-    if((carta1)===(carta2)){
-        
-    }
-    else{
-        setTimeout('desvirar()', 1000);
-
-    }
-    carta1="";
-    carta2=".";
-}*/
 
 function desvirar(carta){
     carta.classList.remove('estouVirada');
@@ -87,10 +78,10 @@ function desvirar(carta){
     carta.querySelector(".frente").classList.remove('esconder');
     carta.querySelector(".verso").classList.add('esconder');
 
-    carta.classList.remove('estouVirada');
-    carta.classList.add('abaixada');
-    carta.querySelector(".frente").classList.remove('esconder');
-    carta.querySelector(".verso").classList.add('esconder');
 
+}
+function fim(){
+    console.log("acertos:"+acertos);
+    if (acertos===(qtd/2)) alert(`Você ganhou em ${jogadas} jogadas!`);
 }
 
