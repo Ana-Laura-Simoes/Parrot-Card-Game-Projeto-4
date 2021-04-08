@@ -1,5 +1,9 @@
 body{
     background:#EEF9BF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -11,13 +15,14 @@ body{
     font-size:56px;
     font-weight:700;
 }
-.container_cartas{
+ul{
     width:90%;
     margin:0 auto;
     display:flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    
 }
 
 .carta{
@@ -29,10 +34,20 @@ background:#75B79E;
 display:flex;
 justify-content: center;
 align-items: center;
+
 }
-.frente{
+img{
     width:100px;
     height:100px;
+}
+.frente{
+    position:relative;
+}
+.verso{
+   position:absolute;
+}
+.esconder{
+    display:none;
 }
 
 @media(max-width: 335px){
