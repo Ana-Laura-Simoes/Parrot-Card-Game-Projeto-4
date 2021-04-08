@@ -63,8 +63,9 @@ function virar(carta,par){
                 c[1].setAttribute("onclick","#");*/
             }
             else {
-            setTimeout('desvirar(c[0])',1000);
-            setTimeout('desvirar(c[1])', 1000);
+            setTimeout(desvirar,1000,c[0]);
+            setTimeout(desvirar,1000,c[1]);
+            //setTimeout('desvirar(c[1])', 1000);
             }
             virada=0;
         }
