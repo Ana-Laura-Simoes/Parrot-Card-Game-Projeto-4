@@ -1,5 +1,3 @@
-//Código satuado de comentários pois a programadora se perde no próprio código :)
-
 
 //variaveis globais
 let qtd=0;
@@ -16,17 +14,16 @@ const parrots = ['bobrossparrot.gif','explodyparrot.gif','fiestaparrot.gif',
 
 QuantasCartas();
 
-
 function QuantasCartas(){
     let i=0;
      while(!qtd||qtd%2===1 || qtd<3 || qtd>14){
-         console.log(qtd);
         qtd=parseInt(prompt("Com quantas cartas deseja jogar?"));
          }
     AdicionarCartas();
         }
 
 function AdicionarCartas(){
+
     parrots.sort(comparador);
     for(let i=j=0;i<qtd-1;i=i+2,j++){
         //marcar papagaios iguais com a classe parX
@@ -34,8 +31,12 @@ function AdicionarCartas(){
         <div class="carta estouAbaixada" onclick="virar(this,${i})"><img src="imagens/${parrots[j]}" class="verso esconder"/><img src="imagens/front.png" class="frente" /></div>
         </li>`;
     }
-    //embaralha as cartas
+
+
+    //embaralha as cartas->apagar?
     CARTASarray.sort(comparador);
+
+
     //imprime as cartas
     for(let i=0;i<qtd;i++){
     let elemento = document.querySelector(".lista");
@@ -83,10 +84,6 @@ function ehIgual(){
     if(Number(indice[0])===Number(indice[1])){
         acertos++;
         //cartas iguais não são fechadas;
-
-
-        /*c[0].setAttribute("onclick","#");
-        c[1].setAttribute("onclick","#");*/
     }
     else {
      //cartas diferentes são fechadas novamente   
@@ -122,37 +119,4 @@ function relogioStart(){
 }
 function relogioStop(){
     clearInterval(interval);
-}
-//revela ou esconde a tela de jogar novamente
-function RevelaEsconde(){
-    const tela= document.querySelector(".fundo");
-    const escondido = tela.parentNode;
-    escondido.classList.toggle('esconder');
-}
-
-function limpaTela(){
-    let elemento = document.querySelector(".lista");
-    elemento.innerHTML="";
-    cont=-1;
-    relogioStart();
-}
-
-function jogarDenovo(botao){
-    if(botao.classList.contains("sim")){
-        limpaTela();
-        RevelaEsconde();
-        setTimeout(reiniciaJogo,2000);
-    }
-    else {
-        alert("Até a próxima!");
-        RevelaEsconde();
-    }
-}
-
-function reiniciaJogo(){
-    qtd=0;
-    virada=0;
-    jogadas=0;
-    acertos=0;
-    QuantasCartas();
 }
