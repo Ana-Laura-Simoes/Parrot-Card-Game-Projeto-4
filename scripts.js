@@ -19,13 +19,15 @@ QuantasCartas();
 
 function QuantasCartas(){
     let i=0;
-     while(qtd%2==1 || qtd<3 || qtd>14){
+     while(!qtd||qtd%2===1 || qtd<3 || qtd>14){
+         console.log(qtd);
         qtd=parseInt(prompt("Com quantas cartas deseja jogar?"));
          }
     AdicionarCartas();
         }
 
 function AdicionarCartas(){
+    parrots.sort(comparador);
     for(let i=j=0;i<qtd-1;i=i+2,j++){
         //marcar papagaios iguais com a classe parX
         CARTASarray[i]=CARTASarray[i+1]=`<li class="par${i}">
@@ -103,11 +105,14 @@ function fim(){
     //console.log("acertos:"+acertos);
     if (acertos===(qtd/2)) {
         relogioStop();
-        alert(`Você ganhou em ${jogadas} jogadas e ${cont} segundos!`);
+        setTimeout(alertFinal,1000);
         setTimeout(RevelaEsconde,2000);
     }
-        
 }
+function alertFinal(){
+    alert(`Você ganhou em ${jogadas} jogadas e ${cont} segundos!`);
+}
+
 //marca o tempo e imprime na tela
 function relogioStart(){
     cont++;
@@ -128,6 +133,8 @@ function RevelaEsconde(){
 function limpaTela(){
     let elemento = document.querySelector(".lista");
     elemento.innerHTML="";
+    cont=-1;
+    relogioStart();
 }
 
 function jogarDenovo(botao){
@@ -142,13 +149,10 @@ function jogarDenovo(botao){
     }
 }
 
-
-
 function reiniciaJogo(){
     qtd=0;
     virada=0;
     jogadas=0;
     acertos=0;
-    cont=0;
     QuantasCartas();
 }
