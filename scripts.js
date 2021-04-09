@@ -1,9 +1,13 @@
-  
+//Código satuado de comentários pois a programadora se perde no próprio código :)
+
+
 //variaveis globais
 let qtd=0;
 let virada=0;
 let jogadas=0;
 let acertos=0;
+let  cont=0;
+let interval;
 const identificador=[2];
 const indice=[2];
 const CARTASarray = [qtd];
@@ -23,6 +27,7 @@ function QuantasCartas(){
 
 function AdicionarCartas(){
     for(let i=j=0;i<qtd-1;i=i+2,j++){
+        //marcar papagaios iguais com a classe parX
         CARTASarray[i]=CARTASarray[i+1]=`<li class="par${i}">
         <div class="carta estouAbaixada" onclick="virar(this,${i})"><img src="imagens/${parrots[j]}" class="verso esconder"/><img src="imagens/front.png" class="frente" /></div>
         </li>`;
@@ -36,11 +41,15 @@ function AdicionarCartas(){
 }
 }
 
+
 function comparador() { 
     return Math.random() - 0.5; 
 }
 //Ao clicar na carta
 function virar(carta,par){
+    if(jogadas===0){
+       interval =setInterval(relogioStart, 1000);
+    }
     console.log(virada);
         jogadas++;
         //Garante que só duas cartas podem ser abertas por vez
@@ -92,5 +101,18 @@ function desvirar(carta){
 }
 function fim(){
     //console.log("acertos:"+acertos);
-    if (acertos===(qtd/2)) alert(`Você ganhou em ${jogadas} jogadas!`);
+    if (acertos===(qtd/2)) {
+        relogioStop();
+        alert(`Você ganhou em ${jogadas} jogadas e ${cont} segundos!`);}
 }
+
+function relogioStart(){
+    cont++;
+    let contador=document.querySelector(".contador");
+    contador.innerHTML=`${cont} s`;
+   
+}
+function relogioStop(){
+    clearInterval(interval);
+}
+
