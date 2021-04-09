@@ -11,16 +11,33 @@
     <title>Parrot Card Game</title>
 </head>
 <body>
-    <div class="topo">
-        <h1>PARROT CARD GAME</h1>
-  
-    </div>
-    <div class="relógio">
-     <span class="contador">0 s</span>
+    <div class="topo_container">
+        <div class="topo">
+            <h1>PARROT CARD GAME</h1>
+        </div>
+    
+        <div class="relógio">
+         <span class="contador">0 s</span>
+        </div>
     </div>
 
-    <ul class="lista">                        
-    </ul>  
+
+    <div class="container">
+        <ul class="lista">                        
+        </ul>  
+    
+        <div  class="esconder">
+        <div class="fundo">
+            <div class="reiniciar">
+            <p>Deseja jogar novamente?</p>
+            <button class="sim" onclick="jogarDenovo(this)"><span>SIM</span></button>
+            <button class="nao"onclick="jogarDenovo(this)"><span>NÃO</span></button>
+            </div>
+            </div>
+    
+        </div>
+    </div>
+
 
 <script src="scripts.js"></script>
 </body>

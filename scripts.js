@@ -103,9 +103,12 @@ function fim(){
     //console.log("acertos:"+acertos);
     if (acertos===(qtd/2)) {
         relogioStop();
-        alert(`Você ganhou em ${jogadas} jogadas e ${cont} segundos!`);}
+        alert(`Você ganhou em ${jogadas} jogadas e ${cont} segundos!`);
+        setTimeout(RevelaEsconde,2000);
+    }
+        
 }
-
+//marca o tempo e imprime na tela
 function relogioStart(){
     cont++;
     let contador=document.querySelector(".contador");
@@ -115,4 +118,37 @@ function relogioStart(){
 function relogioStop(){
     clearInterval(interval);
 }
+//revela ou esconde a tela de jogar novamente
+function RevelaEsconde(){
+    const tela= document.querySelector(".fundo");
+    const escondido = tela.parentNode;
+    escondido.classList.toggle('esconder');
+}
 
+function limpaTela(){
+    let elemento = document.querySelector(".lista");
+    elemento.innerHTML="";
+}
+
+function jogarDenovo(botao){
+    if(botao.classList.contains("sim")){
+        limpaTela();
+        RevelaEsconde();
+        setTimeout(reiniciaJogo,2000);
+    }
+    else {
+        alert("Até a próxima!");
+        RevelaEsconde();
+    }
+}
+
+
+
+function reiniciaJogo(){
+    qtd=0;
+    virada=0;
+    jogadas=0;
+    acertos=0;
+    cont=0;
+    QuantasCartas();
+}

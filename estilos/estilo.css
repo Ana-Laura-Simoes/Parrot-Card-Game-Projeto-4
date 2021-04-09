@@ -4,22 +4,33 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
 
+.topo_container{
+    width:100vw;
+    top:0;
+    left:0;
+    right:0;
+    padding: 30px;
+    text-align: center;
+    position:fixed;
+    display:flex;
+    height:84px;
+    background:#EEF9BF;
+    z-index: 1;
 
+}
 .topo{
-    margin:40px auto;
+    font-family: 'Roboto', sans-serif;
+    margin:0 auto;
     text-align: center;
     color:#75B79E;
-    font-family: 'Roboto', sans-serif;
     font-size:56px;
     font-weight:700;
 }
 
 .relógio{
-    position:fixed;
-    top:5px;
-    right:5px;
     color: black;
     font-size: 40px;  
     background:white;
@@ -31,15 +42,19 @@ body{
     padding: 5px;
 }
 
-
-ul{
+.container{
     width:90%;
-    margin:0 auto;
+    margin:120px auto;
     display:flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    
+}
+ul{  
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 
 .carta{
@@ -66,21 +81,74 @@ img{
 .esconder{
     display:none;
 }
+.fundo {
+    height: 100vh;
+    width: 100vw;
+    background: rgba(255, 255, 255, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+  }
+
+.reiniciar {
+    height: 300px;
+    width:60%;
+    background: #619178;
+    border-radius: 5px;
+    position: fixed;
+    padding: 30px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 50px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+  }
+  .escondido{
+    display:none;
+}
+
+
+
+  button {
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 100px;
+    border:none;
+    width: 70%;
+    height: 60px;
+    text-align: center;
+    font-size:50;
+    transition: background 300ms ease;
+  }
+
+  
+  button:hover {
+    background:#d9dbd1;
+  }
+
+  button span{
+    font-family: 'Roboto', sans-serif;
+    font-size: 36px;
+    color: #619178; 
+  }
 
 
 @media(max-width: 850px){
     .relógio{
     width:80px;
-    height:50px;
-    top:5px;
-    right:0;
- 
+}
+.topo_container{
+    height:100px;
 }
 }
 @media(max-width: 715px){
     .relógio{
-        top:5px;
-        right:0;
         width:50px;
         height:30px;
         font-size: 20px; 
@@ -89,9 +157,8 @@ img{
     .topo{
         font-size:36px;
     }
+    .container{
+        height:100px;
+        margin:80px auto;
+    }
   }
-
-
-@media(max-width: 50px){
-
-}
